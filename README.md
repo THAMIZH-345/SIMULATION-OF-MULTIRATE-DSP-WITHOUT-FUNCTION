@@ -1,5 +1,4 @@
-# EXP 6 : SPEECH RECOGNITION USING SCILAB
-
+# EXP 6 : SIMULATION OF MULTIRATE DSP WITHOUT FUNCTION
 ## AIM: 
 
 To perform and verify multirate DSP without function using SCILAB.
@@ -8,10 +7,51 @@ To perform and verify multirate DSP without function using SCILAB.
 PC installed with SCILAB. 
 
 ## PROGRAM : 
+```asm
+n = 0:%pi/50:2*%pi;
+x = sin(n); // Original signal
+// Input upsampling and downsampling factors
+M = input("Enter the downsampling factor M: ");
+L = input("Enter the upsampling factor L: ");
+```
+// --- Downsampling ---
+```
+downsampling_x = x(1:M:$);
+disp(x, "Input signal x(n) = ");
+disp(downsampling_x, "Downsampled signal x(Mn) = ");
+// Plot original and downsampled signals
+scf(1);
+subplot(2,1,1);
+plot2d3(1:length(x), x);
+xtitle("Original Signal");
+subplot(2,1,2);
+plot2d3(1:length(downsampling_x), downsampling_x);
+xtitle("Downsampled Signal by a factor of M");
+```
+// --- Upsampling ---
+```
+upsampling_x = zeros(1, L*length(x));
+for i = 1:length(x)
+    upsampling_x((i-1)*L + 1) = x(i);
+end
 
-//  SPEECH RECOGNITION USING SCILAB
+disp(upsampling_x, "Upsampled signal x(n/L) = ");
+// Plot original and upsampled signals
+scf(2);
+subplot(2,1,1);
+plot2d3(1:length(x), x);
+xtitle("Original Signal");
 
-## OUTPUT: 
+subplot(2,1,2);
+plot2d3(1:length(upsampling_x), upsampling_x);
+xtitle("Upsampled Signal by a factor of L");
+```
+
+# OUTPUT: 
+## DOWNSAMPLING
+<img width="756" height="719" alt="512083817-ae369e55-4f1b-4951-b22c-80af95b06610" src="https://github.com/user-attachments/assets/5190b682-10d0-42cb-ad5d-772d4f6a1cf5" />
+## UPSAMPLING
+<img width="757" height="718" alt="512084748-d324897f-6b7c-41cf-bb50-5b0dabcc85a7" src="https://github.com/user-attachments/assets/c4e8b8af-bda2-4f46-894e-4d4c353e9f21" />
 
 
 ## RESULT: 
