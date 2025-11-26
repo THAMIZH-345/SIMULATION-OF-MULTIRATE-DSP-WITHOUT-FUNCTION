@@ -53,7 +53,6 @@ xtitle("Upsampled Signal by a factor of L");
 ## UPSAMPLING
 <img width="757" height="718" alt="512084748-d324897f-6b7c-41cf-bb50-5b0dabcc85a7" src="https://github.com/user-attachments/assets/c4e8b8af-bda2-4f46-894e-4d4c353e9f21" />
 
-
 ## RESULT: 
 Thus the decimation process by a factor M and interpolation process by a factor L using 
 SCILAB was implemented. 
